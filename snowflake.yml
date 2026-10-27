@@ -1,0 +1,25 @@
+definition_version: 2
+entities:
+  streamlit_app:
+    type: streamlit
+    meta:
+      use_mixins:
+        - streamlit_shared
+    identifier:
+      name: JDDEA57CR2RCKLM2
+      database: DB_BANKING
+      schema: APP
+mixins:
+  streamlit_shared:
+    artifacts:
+      - pyproject.toml
+      - streamlit_app.py
+      - .streamlit/config.toml
+    title: Banking Live Dashboard
+    query_warehouse: DBT_PRACTICE_WH
+    compute_pool: BANKING_APP_POOL
+    grants:
+      - privilege: USAGE
+        role: BANKING_APP_ROLE
+        with_grant_option: true
+    main_file: streamlit_app.py
